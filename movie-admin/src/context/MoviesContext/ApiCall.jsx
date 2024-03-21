@@ -18,7 +18,7 @@ import {
 export const getMovies = async (dispatch) => {
   dispatch(getMoviesLoading());
   try {
-    const { data } = await axios.get(`http://localhost:5000/api/movies`, {
+    const { data } = await axios.get(`https://api-cmuv.onrender.com/api/movies`, {
       headers: {
         token: `Bearer ${JSON.parse(localStorage.getItem("userData")).token}`,
       },
@@ -35,7 +35,7 @@ export const getMovies = async (dispatch) => {
 export const deleteMovie = async (id, dispatch) => {
   dispatch(deleteMovieLoading());
   try {
-    await axios.delete(`http://localhost:5000/api/movies/${id}`, {
+    await axios.delete(`https://api-cmuv.onrender.com/api/movies/${id}`, {
       headers: {
         token: `Bearer ${JSON.parse(localStorage.getItem("userData")).token}`,
       },
@@ -53,7 +53,7 @@ export const createMovie = async (movie, dispatch) => {
 
   try {
     const { data } = await axios.post(
-      `http://localhost:5000/api/movies`,
+      `https://api-cmuv.onrender.com/api/movies`,
       movie,
       {
         headers: {
@@ -75,7 +75,7 @@ export const updateMovie = async (movie, id, dispatch) => {
   dispatch(updateMovieLoading());
   try {
     const { data } = await axios.put(
-      `http://localhost:5000/api/movies/${id}`,
+      `https://api-cmuv.onrender.com/api/movies/${id}`,
       movie,
       {
         headers: {
