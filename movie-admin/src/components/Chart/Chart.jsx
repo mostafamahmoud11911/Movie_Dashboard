@@ -37,7 +37,7 @@ export default function Chart() {
   // get data chart
   const getStats = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:5000/api/users/stats`);
+      const { data } = await axios.get(`https://api-cmuv.onrender.com/api/users/stats`);
       const sortData = data.sort((a, b) => a._id - b._id);
       sortData.map(item => setUserStats((prev)=>[...prev,{name: MONTHS[item._id -1], "NEW USER": item.total}]))
     } catch (error) {
