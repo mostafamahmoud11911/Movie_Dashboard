@@ -18,7 +18,7 @@ import {
 export const getLists = async (dispatch) => {
   dispatch(getListsLoading());
   try {
-    const { data } = await axios.get(`http://localhost:5000/api/lists`, {
+    const { data } = await axios.get(`https://api-cmuv.onrender.com/api/lists`, {
       headers: {
         token: `Bearer ${JSON.parse(localStorage.getItem("userData")).token}`,
       },
@@ -33,7 +33,7 @@ export const getLists = async (dispatch) => {
 export const deleteList = async (id, dispatch) => {
   dispatch(deleteListLoading());
   try {
-    await axios.delete(`http://localhost:5000/api/lists/${id}`, {
+    await axios.delete(`https://api-cmuv.onrender.com/api/lists/${id}`, {
       headers: {
         token: `Bearer ${JSON.parse(localStorage.getItem("userData")).token}`,
       },
@@ -48,7 +48,7 @@ export const deleteList = async (id, dispatch) => {
 export const createList = async (list, dispatch) => {
   dispatch(createListLoading());
   try {
-    const { data } = await axios.post(`http://localhost:5000/api/lists`, list, {
+    const { data } = await axios.post(`https://api-cmuv.onrender.com/api/lists`, list, {
       headers: {
         token: `Bearer ${JSON.parse(localStorage.getItem("userData")).token}`,
       },
@@ -66,7 +66,7 @@ export const updateList = async (list, id, dispatch) => {
   dispatch(updateListLoading());
   try {
     const { data } = await axios.put(
-      `http://localhost:5000/api/lists/${id}`,
+      `https://api-cmuv.onrender.com/api/lists/${id}`,
       list,
       {
         headers: {
