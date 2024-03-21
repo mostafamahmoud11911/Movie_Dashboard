@@ -17,7 +17,7 @@ export default function UserTable() {
   const getNewUsers = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/users?new=true`,
+        `https://api-cmuv.onrender.com/api/users?new=true`,
         {
           headers: {
             token: `Bearer ${
