@@ -5,7 +5,7 @@ export const loginUser = async (user, dispatch) => {
   dispatch(Loginloading());
   try {
     const { data } = await axios.post(
-      `http://localhost:5000/api/auth/login`,
+      `https://api-cmuv.onrender.com/api/auth/login`,
       user
     );
 
