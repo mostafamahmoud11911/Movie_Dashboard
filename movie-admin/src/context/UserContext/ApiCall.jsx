@@ -18,7 +18,7 @@ import {
 export const getUsers = async (dispatch) => {
   dispatch(getUsersLoading());
   try {
-    const { data } = await axios.get(`http://localhost:5000/api/users`, {
+    const { data } = await axios.get(`https://api-cmuv.onrender.com/api/users`, {
       headers: {
         token: `Bearer ${JSON.parse(localStorage.getItem("userData")).token}`,
       },
@@ -36,7 +36,7 @@ export const createUser = async (user, dispatch) => {
 
   dispatch(createUserLoading());
   try {
-    const { data } = await axios.post(`http://localhost:5000/api/auth/register`, user);
+    const { data } = await axios.post(`https://api-cmuv.onrender.com/api/auth/register`, user);
     dispatch(createUserSuccess(data));
   } catch (error) {
     dispatch(createUserFailure(error.response.data.message));
@@ -47,7 +47,7 @@ export const createUser = async (user, dispatch) => {
 export const deleteUser = async (id, dispatch) => {
   dispatch(deleteUserLoading());
   try {
-    await axios.delete(`http://localhost:5000/api/users/${id}`, {
+    await axios.delete(`https://api-cmuv.onrender.com/api/users/${id}`, {
       headers: {
         token: `Bearer ${JSON.parse(localStorage.getItem("userData")).token}`,
       },
@@ -60,13 +60,10 @@ export const deleteUser = async (id, dispatch) => {
 
 // UPDATE USER
 export const updateUser = async (user, id, dispatch) => {
-  console.log(user)
-  console.log(id)
-  console.log(dispatch)
   dispatch(updateUserLoading());
   try {
     const { data } = await axios.put(
-      `http://localhost:5000/api/users/${id}`,
+      `https://api-cmuv.onrender.com/api/users/${id}`,
       user,
       {
         headers: {
