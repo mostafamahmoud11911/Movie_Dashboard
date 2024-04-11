@@ -32,8 +32,8 @@ export default function Navbar() {
 
   const handleLogout = () => {
     handleClose();
-    dispatch(Logout);
     localStorage.removeItem("userData");
+    dispatch(Logout);
     navigate('/login')
   };
 
