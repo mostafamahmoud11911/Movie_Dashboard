@@ -28,7 +28,7 @@ export default function Navbar() {
     setAnchorEl(null);
   };
 
-  const { dispatch } = useAuth();
+  const { dispatch, user } = useAuth();
 
   const handleLogout = () => {
     handleClose();
@@ -78,15 +78,17 @@ export default function Navbar() {
               horizontal: "right",
             }}
           >
-            <Link to={`/login`} className="link">
-              <MenuItem onClick={handleClose}>
-                <Typography textAlign="center">Login</Typography>
+            {user ? (
+              <MenuItem onClick={handleLogout}>
+                <Typography textAlign="center">Logout</Typography>
               </MenuItem>
-            </Link>
-
-            <MenuItem onClick={handleLogout}>
-              <Typography textAlign="center">Logout</Typography>
-            </MenuItem>
+            ) : (
+              <Link to={`/login`} className="link">
+                <MenuItem onClick={handleClose}>
+                  <Typography textAlign="center">Login</Typography>
+                </MenuItem>
+              </Link>
+            )}
           </Menu>
         </Box>
       </Toolbar>
