@@ -8,7 +8,6 @@ import {
 } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
-import cover from "/public/login.jpg";
 import { Link,useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { useFormik } from "formik";
@@ -146,7 +145,7 @@ export default function Login() {
             sx={{ display: { xs: "none", md: "block" } }}
           >
             <img
-              src={cover}
+              src="/login.jpg"
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
               alt=""
             />
